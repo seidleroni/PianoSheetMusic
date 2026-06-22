@@ -8,6 +8,9 @@ tools/.venv/
 # music21 may drop a temp corpus / environment files
 *.tmp
 
+# headless preview screenshots (tools/shoot.py)
+tools/preview.png
+
 # OS / editor
 .DS_Store
 Thumbs.db

@@ -41,6 +41,25 @@ python -m http.server 8000
 Then open http://localhost:8000 . (Serving over `http://` is required — opening the
 file directly will not load the modules or piece files.)
 
+## Headless screenshots (`tools/shoot.py`)
+
+To render the app and capture a PNG from the terminal — no browser window, no
+manually-started server — use the `uv` + Playwright tool. It serves `docs/` on an
+ephemeral port and drives your **already-installed Chrome** (`channel="chrome"`), so
+there's no browser download:
+
+```sh
+uv run tools/shoot.py                          # homepage -> tools/preview.png
+uv run tools/shoot.py --lefthand triads        # set left hand, then shoot
+uv run tools/shoot.py --route /index.html --out shot.png
+uv run tools/shoot.py --url https://seidleroni.github.io/PianoSheetMusic/
+uv run tools/shoot.py --eval "document.querySelectorAll('#note-labels span').length"
+```
+
+`--eval` runs a JS expression in the page and prints the result (handy for checking
+the DOM without a screenshot). This is the preferred way to visually verify UI
+changes during development. Output PNGs are git-ignored.
+
 ## Deploy (GitHub Pages)
 
 Repo → **Settings → Pages → Source = "Deploy from a branch" → branch `main`,
