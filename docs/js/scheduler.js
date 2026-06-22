@@ -43,13 +43,18 @@ export class Scheduler {
     const Tone = this.Tone;
     const { events, beatsPerBar } = this.piece;
 
-    const lastEvent = events[events.length - 1];
-    const endBeat = lastEvent ? lastEvent.beat + lastEvent.durBeats : 0;
+    // End of piece = latest note-off across all events.
+    const endBeat = events.reduce((max, ev) => {
+      const dur = ev.notes.reduce((d, n) => Math.max(d, n.durBeats), 0);
+      return Math.max(max, ev.beat + dur);
+    }, 0);
 
     this.part = new Tone.Part((time, ev) => {
       if (!ev.rest) {
-        const durSec = ev.durBeats * (60 / Tone.getTransport().bpm.value);
-        for (const midi of ev.midis) this.player.triggerNote(midi, durSec, time);
+        const bpm = Tone.getTransport().bpm.value;
+        for (const n of ev.notes) {
+          this.player.triggerNote(n.midi, n.durBeats * (60 / bpm), time);
+        }
       }
       // Visual updates happen on the draw thread, aligned to the audio time.
       Tone.getDraw().schedule(() => this._advanceCursor(ev), time);

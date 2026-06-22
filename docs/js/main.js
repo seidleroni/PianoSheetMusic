@@ -12,6 +12,7 @@ const OSMD = window.opensheetmusicdisplay;
 // --- DOM ---
 const els = {
   piece: document.getElementById("piece"),
+  lefthand: document.getElementById("lefthand"),
   play: document.getElementById("play"),
   pause: document.getElementById("pause"),
   stop: document.getElementById("stop"),
@@ -73,14 +74,20 @@ async function loadManifest() {
   return pieces;
 }
 
+function pieceStem(id) {
+  const lh = els.lefthand.value;
+  return lh === "off" ? id : `${id}.${lh}`;
+}
+
 async function loadPiece(id) {
   scheduler.stop();
   updateButtons();
   setStatus("Loading sheet music…");
   try {
+    const stem = pieceStem(id);
     const [xml, data] = await Promise.all([
-      fetch(`./pieces/${id}.musicxml`).then((r) => r.text()),
-      fetch(`./pieces/${id}.json`).then((r) => r.json()),
+      fetch(`./pieces/${stem}.musicxml`).then((r) => r.text()),
+      fetch(`./pieces/${stem}.json`).then((r) => r.json()),
     ]);
     await osmd.load(xml);
     osmd.zoom = computeZoom();
@@ -89,6 +96,7 @@ async function loadPiece(id) {
     noteLabels.setEvents(data.events);
     noteLabels.setVisible(labelsOn);
     staffGuide.setKey(data.key);
+    staffGuide.setClefs(data.clefs || ["treble"]);
     els.tempo.value = data.tempo;
     els.bpm.textContent = data.tempo;
     setStatus("");
@@ -178,6 +186,7 @@ async function init() {
   els.labels.addEventListener("click", toggleLabels);
   els.guide.addEventListener("click", toggleGuide);
   els.piece.addEventListener("change", () => loadPiece(els.piece.value));
+  els.lefthand.addEventListener("change", () => loadPiece(els.piece.value));
   window.addEventListener("resize", onResize);
 
   try {

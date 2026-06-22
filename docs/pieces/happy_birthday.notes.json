@@ -5,9 +5,10 @@
   "timeSignature": "3/4",
   "beatsPerBar": 3,
   "tempo": 100,
-  "leftHand": "off",
+  "leftHand": "notes",
   "clefs": [
-    "treble"
+    "treble",
+    "bass"
   ],
   "events": [
     {
@@ -19,6 +20,11 @@
           "midi": 62,
           "durBeats": 0.5,
           "name": "D4"
+        },
+        {
+          "midi": 43,
+          "durBeats": 3.0,
+          "name": "G2"
         }
       ],
       "label": "D4"
@@ -71,6 +77,11 @@
           "midi": 67,
           "durBeats": 1.0,
           "name": "G4"
+        },
+        {
+          "midi": 50,
+          "durBeats": 3.0,
+          "name": "D3"
         }
       ],
       "label": "G4"
@@ -97,6 +108,11 @@
           "midi": 62,
           "durBeats": 0.5,
           "name": "D4"
+        },
+        {
+          "midi": 50,
+          "durBeats": 3.0,
+          "name": "D3"
         }
       ],
       "label": "D4"
@@ -149,6 +165,11 @@
           "midi": 69,
           "durBeats": 1.0,
           "name": "A4"
+        },
+        {
+          "midi": 43,
+          "durBeats": 3.0,
+          "name": "G2"
         }
       ],
       "label": "A4"
@@ -175,6 +196,11 @@
           "midi": 62,
           "durBeats": 0.5,
           "name": "D4"
+        },
+        {
+          "midi": 43,
+          "durBeats": 3.0,
+          "name": "G2"
         }
       ],
       "label": "D4"
@@ -227,6 +253,11 @@
           "midi": 67,
           "durBeats": 1.0,
           "name": "G4"
+        },
+        {
+          "midi": 43,
+          "durBeats": 3.0,
+          "name": "G2"
         }
       ],
       "label": "G4"
@@ -253,6 +284,11 @@
           "midi": 72,
           "durBeats": 0.5,
           "name": "C5"
+        },
+        {
+          "midi": 48,
+          "durBeats": 3.0,
+          "name": "C3"
         }
       ],
       "label": "C5"
@@ -305,6 +341,11 @@
           "midi": 69,
           "durBeats": 1.0,
           "name": "A4"
+        },
+        {
+          "midi": 43,
+          "durBeats": 3.0,
+          "name": "G2"
         }
       ],
       "label": "A4"

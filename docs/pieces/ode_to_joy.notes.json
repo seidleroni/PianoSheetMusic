@@ -5,9 +5,10 @@
   "timeSignature": "4/4",
   "beatsPerBar": 4,
   "tempo": 100,
-  "leftHand": "off",
+  "leftHand": "notes",
   "clefs": [
-    "treble"
+    "treble",
+    "bass"
   ],
   "events": [
     {
@@ -19,6 +20,11 @@
           "midi": 64,
           "durBeats": 1.0,
           "name": "E4"
+        },
+        {
+          "midi": 48,
+          "durBeats": 4.0,
+          "name": "C3"
         }
       ],
       "label": "E4"
@@ -71,6 +77,11 @@
           "midi": 67,
           "durBeats": 1.0,
           "name": "G4"
+        },
+        {
+          "midi": 43,
+          "durBeats": 4.0,
+          "name": "G2"
         }
       ],
       "label": "G4"
@@ -123,6 +134,11 @@
           "midi": 60,
           "durBeats": 1.0,
           "name": "C4"
+        },
+        {
+          "midi": 48,
+          "durBeats": 4.0,
+          "name": "C3"
         }
       ],
       "label": "C4"
@@ -175,6 +191,11 @@
           "midi": 64,
           "durBeats": 1.5,
           "name": "E4"
+        },
+        {
+          "midi": 43,
+          "durBeats": 4.0,
+          "name": "G2"
         }
       ],
       "label": "E4"
@@ -214,6 +235,11 @@
           "midi": 64,
           "durBeats": 1.0,
           "name": "E4"
+        },
+        {
+          "midi": 48,
+          "durBeats": 4.0,
+          "name": "C3"
         }
       ],
       "label": "E4"
@@ -266,6 +292,11 @@
           "midi": 67,
           "durBeats": 1.0,
           "name": "G4"
+        },
+        {
+          "midi": 43,
+          "durBeats": 4.0,
+          "name": "G2"
         }
       ],
       "label": "G4"
@@ -318,6 +349,11 @@
           "midi": 60,
           "durBeats": 1.0,
           "name": "C4"
+        },
+        {
+          "midi": 48,
+          "durBeats": 4.0,
+          "name": "C3"
         }
       ],
       "label": "C4"
@@ -370,6 +406,11 @@
           "midi": 62,
           "durBeats": 1.5,
           "name": "D4"
+        },
+        {
+          "midi": 48,
+          "durBeats": 4.0,
+          "name": "C3"
         }
       ],
       "label": "D4"

@@ -48,11 +48,11 @@ export class NoteLabels {
       const it = cursor.iterator;
       if (!it || it.EndReached) break;
       const ev = this.events[i];
-      if (ev && !ev.rest && ev.names.length) {
+      if (ev && !ev.rest && ev.label) {
         const pos = this._noteScreenPos(cursor);
         if (pos) {
           const span = document.createElement("span");
-          span.textContent = formatName(ev.names[0]);
+          span.textContent = formatName(ev.label);
           span.style.left = `${pos.x - wrapRect.left}px`;
           span.style.top = `${pos.y - wrapRect.top - 18}px`;
           this.layer.appendChild(span);
