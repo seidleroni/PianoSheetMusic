@@ -1,0 +1,11 @@
+[project]
+name = "pianosheetmusic-tools"
+version = "0.1.0"
+description = "Authoring tools that generate MusicXML sheet music for the PianoSheetMusic web app"
+requires-python = ">=3.11"
+dependencies = [
+    "music21>=9.1",
+]
+
+# Run with:  uv run build_pieces.py
+# (from inside the tools/ directory)

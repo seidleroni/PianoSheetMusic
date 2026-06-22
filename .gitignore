@@ -1,0 +1,15 @@
+# Python / uv
+__pycache__/
+*.pyc
+.venv/
+tools/.venv/
+.uv/
+
+# music21 may drop a temp corpus / environment files
+*.tmp
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

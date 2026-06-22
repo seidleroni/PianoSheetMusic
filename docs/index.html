@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#1f2937" />
+  <title>Piano Practice</title>
+
+  <!-- OpenSheetMusicDisplay ships only as a UMD bundle, so load it as a classic
+       script that defines window.opensheetmusicdisplay. Tone.js is loaded as an
+       ES module inside js/main.js (it is genuine ESM). Versions are pinned. -->
+  <script src="https://cdn.jsdelivr.net/npm/opensheetmusicdisplay@1.9.0/build/opensheetmusicdisplay.min.js"></script>
+
+  <style>
+    :root {
+      --bg: #f5f6f8;
+      --panel: #ffffff;
+      --ink: #1f2937;
+      --muted: #6b7280;
+      --accent: #2563eb;
+      --accent-ink: #ffffff;
+      --line: #e5e7eb;
+    }
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.4;
+      padding-bottom: 4rem;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--panel);
+      border-bottom: 1px solid var(--line);
+      padding: 0.6rem 0.8rem calc(0.6rem + env(safe-area-inset-bottom, 0));
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+    .row { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+    .row + .row { margin-top: 0.5rem; }
+
+    select, button {
+      font: inherit;
+      border-radius: 0.6rem;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--ink);
+      padding: 0.55rem 0.8rem;
+      min-height: 2.75rem; /* comfortable touch target */
+    }
+    select { flex: 1 1 8rem; }
+    button { cursor: pointer; }
+    button:active { transform: translateY(1px); }
+
+    .controls button {
+      flex: 1 1 0;
+      font-weight: 600;
+    }
+    button.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+    button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+    button:disabled { opacity: 0.5; cursor: default; }
+
+    .tempo { flex: 1 1 100%; }
+    .tempo label { display: flex; align-items: center; gap: 0.6rem; font-size: 0.95rem; color: var(--muted); }
+    .tempo input[type="range"] { flex: 1; min-width: 6rem; accent-color: var(--accent); height: 2rem; }
+    .tempo .bpm { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--ink); min-width: 4.6rem; text-align: right; }
+
+    .toggles { font-size: 0.95rem; }
+
+    #status {
+      font-size: 0.85rem;
+      color: var(--muted);
+      padding: 0.3rem 0.8rem;
+      min-height: 1.2rem;
+    }
+
+    #osmd-wrapper {
+      position: relative;
+      margin: 0.5rem auto 0;
+      padding: 0.5rem;
+      max-width: 1100px;
+    }
+    #osmd { width: 100%; }
+
+    /* Note-name letter overlay */
+    #note-labels { position: absolute; inset: 0; pointer-events: none; }
+    #note-labels span {
+      position: absolute;
+      transform: translate(-50%, 0);
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--accent);
+      background: rgba(255,255,255,0.85);
+      padding: 0 2px;
+      border-radius: 3px;
+      white-space: nowrap;
+    }
+
+    .hint { color: var(--muted); font-size: 0.8rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="row">
+      <select id="piece" aria-label="Choose a piece"></select>
+      <button id="metronome" aria-pressed="false" title="Metronome">🔔 Metro</button>
+      <button id="labels" aria-pressed="false" title="Show note names">A B C</button>
+    </div>
+
+    <div class="row controls">
+      <button id="play" class="primary">▶ Play</button>
+      <button id="pause" disabled>⏸ Pause</button>
+      <button id="stop" disabled>⏹ Stop</button>
+    </div>
+
+    <div class="row tempo">
+      <label>
+        Tempo
+        <input id="tempo" type="range" min="40" max="160" step="1" value="100" />
+        <span class="bpm"><span id="bpm">100</span> BPM</span>
+      </label>
+    </div>
+  </header>
+
+  <div id="status">Loading…</div>
+
+  <div id="osmd-wrapper">
+    <div id="osmd"></div>
+    <div id="note-labels"></div>
+  </div>
+
+  <p class="hint" style="text-align:center; padding:0 1rem;">
+    Tip: tap ▶ Play to start (the first tap turns on sound). Adjust the tempo slider to slow it down while you learn.
+  </p>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>
