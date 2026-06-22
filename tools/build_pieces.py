@@ -51,6 +51,74 @@ HAPPY_BIRTHDAY = [
     ("C5", 0.5), ("C5", 0.5), ("B4", 1), ("G4", 1), ("A4", 1), ("G4", 2),
 ]
 
+# Twinkle, Twinkle, Little Star (public domain) -- 4/4, C major. All white keys.
+TWINKLE = [
+    ("C4", 1), ("C4", 1), ("G4", 1), ("G4", 1),
+    ("A4", 1), ("A4", 1), ("G4", 2),
+    ("F4", 1), ("F4", 1), ("E4", 1), ("E4", 1),
+    ("D4", 1), ("D4", 1), ("C4", 2),
+    ("G4", 1), ("G4", 1), ("F4", 1), ("F4", 1),
+    ("E4", 1), ("E4", 1), ("D4", 2),
+    ("G4", 1), ("G4", 1), ("F4", 1), ("F4", 1),
+    ("E4", 1), ("E4", 1), ("D4", 2),
+    ("C4", 1), ("C4", 1), ("G4", 1), ("G4", 1),
+    ("A4", 1), ("A4", 1), ("G4", 2),
+    ("F4", 1), ("F4", 1), ("E4", 1), ("E4", 1),
+    ("D4", 1), ("D4", 1), ("C4", 2),
+]
+
+# Mary Had a Little Lamb (public domain) -- 4/4, C major. All white keys.
+MARY = [
+    ("E4", 1), ("D4", 1), ("C4", 1), ("D4", 1),
+    ("E4", 1), ("E4", 1), ("E4", 2),
+    ("D4", 1), ("D4", 1), ("D4", 2),
+    ("E4", 1), ("G4", 1), ("G4", 2),
+    ("E4", 1), ("D4", 1), ("C4", 1), ("D4", 1),
+    ("E4", 1), ("E4", 1), ("E4", 1), ("E4", 1),
+    ("D4", 1), ("D4", 1), ("E4", 1), ("D4", 1),
+    ("C4", 4),
+]
+
+# Frere Jacques (public domain) -- 4/4, C major. A tonic-drone round; the closing
+# "din dan don" dips to G3 (just below the treble staff).
+FRERE_JACQUES = [
+    ("C4", 1), ("D4", 1), ("E4", 1), ("C4", 1),
+    ("C4", 1), ("D4", 1), ("E4", 1), ("C4", 1),
+    ("E4", 1), ("F4", 1), ("G4", 2),
+    ("E4", 1), ("F4", 1), ("G4", 2),
+    ("G4", 0.5), ("A4", 0.5), ("G4", 0.5), ("F4", 0.5), ("E4", 1), ("C4", 1),
+    ("G4", 0.5), ("A4", 0.5), ("G4", 0.5), ("F4", 0.5), ("E4", 1), ("C4", 1),
+    ("C4", 1), ("G3", 1), ("C4", 2),
+    ("C4", 1), ("G3", 1), ("C4", 2),
+]
+
+# Old MacDonald Had a Farm (public domain) -- 4/4, C major. The recognizable
+# "E-I-E-I-O" strain (the later verse lines use a pickup, so we stop here).
+OLD_MACDONALD = [
+    ("C4", 1), ("C4", 1), ("C4", 1), ("G4", 1),
+    ("A4", 1), ("A4", 1), ("G4", 2),
+    ("E4", 1), ("E4", 1), ("D4", 1), ("D4", 1),
+    ("C4", 4),
+]
+
+# Fur Elise (Beethoven, WoO 59) -- the famous A-section theme, A minor.
+# Beethoven wrote it in 3/8 with sixteenth notes; this is the common beginner
+# transcription in 3/4 with eighth notes (same pitches, easier to read). It opens
+# with a one-beat pickup (the iconic E-D#), and the short rests after each long
+# note are absorbed into that note's duration so playback stays gap-aligned.
+# Accidentals (D#, G#) are spelled explicitly; the A-minor key signature is blank.
+FUR_ELISE = [
+    ("E5", 0.5), ("D#5", 0.5),                                    # pickup (1 beat)
+    ("E5", 0.5), ("D#5", 0.5), ("E5", 0.5), ("B4", 0.5), ("D5", 0.5), ("C5", 0.5),
+    ("A4", 1.5), ("C4", 0.5), ("E4", 0.5), ("A4", 0.5),           # i  (A minor)
+    ("B4", 1.5), ("E4", 0.5), ("G#4", 0.5), ("B4", 0.5),          # V  (E major)
+    ("C5", 1.5), ("E4", 0.5), ("E5", 0.5), ("D#5", 0.5),          # i, lead back
+    ("E5", 0.5), ("D#5", 0.5), ("E5", 0.5), ("B4", 0.5), ("D5", 0.5), ("C5", 0.5),
+    ("A4", 1.5), ("C4", 0.5), ("E4", 0.5), ("A4", 0.5),           # i
+    ("B4", 1.5), ("E4", 0.5), ("C5", 0.5), ("B4", 0.5),           # V -> cadence
+    ("A4", 3.0),                                                  # resolution
+]
+
 # ---------------------------------------------------------------------------
 # Left-hand chords (one per measure). root = single bass note ("notes" mode);
 # triad = the three chord tones ("triads" mode). Voiced in the bass clef range.
@@ -58,8 +126,11 @@ HAPPY_BIRTHDAY = [
 
 CHORDS = {
     "C": {"root": "C3", "triad": ["C3", "E3", "G3"]},
+    "F": {"root": "F2", "triad": ["F2", "A2", "C3"]},
     "G": {"root": "G2", "triad": ["G2", "B2", "D3"]},
     "D": {"root": "D3", "triad": ["D3", "F#3", "A3"]},
+    "Am": {"root": "A2", "triad": ["A2", "C3", "E3"]},
+    "E": {"root": "E2", "triad": ["E2", "G#2", "B2"]},
 }
 
 PIECES = [
@@ -81,6 +152,53 @@ PIECES = [
         "melody": HAPPY_BIRTHDAY,
         "chords": ["G", "D", "D", "G", "G", "G", "C", "G"],
     },
+    {
+        "id": "twinkle",
+        "title": "Twinkle, Twinkle, Little Star",
+        "key": "C",
+        "time_signature": "4/4",
+        "tempo": 100,
+        "melody": TWINKLE,
+        "chords": ["C", "F", "F", "C", "C", "G", "C", "G", "C", "F", "F", "C"],
+    },
+    {
+        "id": "mary_had_a_little_lamb",
+        "title": "Mary Had a Little Lamb",
+        "key": "C",
+        "time_signature": "4/4",
+        "tempo": 100,
+        "melody": MARY,
+        "chords": ["C", "C", "G", "C", "C", "C", "G", "C"],
+    },
+    {
+        "id": "frere_jacques",
+        "title": "Frère Jacques",
+        "key": "C",
+        "time_signature": "4/4",
+        "tempo": 100,
+        "melody": FRERE_JACQUES,
+        "chords": ["C", "C", "C", "C", "C", "C", "C", "C"],
+    },
+    {
+        "id": "old_macdonald",
+        "title": "Old MacDonald Had a Farm",
+        "key": "C",
+        "time_signature": "4/4",
+        "tempo": 110,
+        "melody": OLD_MACDONALD,
+        "chords": ["C", "F", "G", "C"],
+    },
+    {
+        "id": "fur_elise",
+        "title": "Für Elise (theme)",
+        "key": "A",
+        "mode": "minor",
+        "time_signature": "3/4",
+        "tempo": 68,
+        "pickup": 1.0,  # one-beat anacrusis (the opening E-D#)
+        "melody": FUR_ELISE,
+        "chords": ["E", "Am", "E", "Am", "E", "Am", "E", "Am"],
+    },
 ]
 
 LH_MODES = ["off", "notes", "triads"]
@@ -88,39 +206,117 @@ LH_MODES = ["off", "notes", "triads"]
 OUT_DIR = Path(__file__).resolve().parent.parent / "docs" / "pieces"
 
 
+def key_display(piece: dict) -> str:
+    """Human-readable key name, e.g. 'C Major', 'A Minor' (shown as a subtitle)."""
+    tonic = piece["key"].replace("-", "♭").replace("#", "♯")
+    return f"{tonic} {piece.get('mode', 'major').capitalize()}"
+
+
+def _piece_key(piece: dict) -> key.Key:
+    return key.Key(piece["key"], piece.get("mode", "major"))
+
+
+def _chunk_durations(items, measure_ql: float, pickup_ql: float):
+    """Greedily split a flat list of (·, quarterLength) into per-measure lists.
+
+    The first list fills the pickup (if any); the rest fill full measures. Assumes
+    no item straddles a barline (true for the melodies here).
+    """
+    measures, cur, acc = [], [], 0.0
+    target = pickup_ql or measure_ql
+    for item in items:
+        cur.append(item)
+        acc += item[1]
+        if acc >= target - 1e-6:
+            measures.append(cur)
+            cur, acc, target = [], 0.0, measure_ql
+    if cur:
+        measures.append(cur)
+    return measures
+
+
 def build_score(piece: dict, lh_mode: str) -> stream.Score:
     """Build a music21 Score: treble melody, plus an optional bass-clef left hand."""
-    beats_per_bar = int(piece["time_signature"].split("/")[0])
+    ts_str = piece["time_signature"]
+    num, den = (int(x) for x in ts_str.split("/"))
+    measure_ql = 4.0 * num / den
+    pickup_ql = float(piece.get("pickup", 0) or 0)
     score = stream.Score()
 
-    # Right hand (treble melody)
-    rh = stream.Part()
-    rh.append(clef.TrebleClef())
-    rh.append(key.Key(piece["key"]))
-    rh.append(meter.TimeSignature(piece["time_signature"]))
-    rh.append(tempo.MetronomeMark(number=piece["tempo"]))
-    for name, ql in piece["melody"]:
-        rh.append(note.Note(name, quarterLength=ql))
-    score.insert(0, rh)
-
-    # Left hand (bass clef), one chord/note per measure
+    score.insert(0, _build_melody_part(piece, lh_mode, measure_ql, pickup_ql))
     if lh_mode in ("notes", "triads"):
-        lh = stream.Part()
-        lh.append(clef.BassClef())
-        lh.append(key.Key(piece["key"]))
-        lh.append(meter.TimeSignature(piece["time_signature"]))
-        for chord_name in piece["chords"]:
-            spec = CHORDS[chord_name]
-            if lh_mode == "notes":
-                lh.append(note.Note(spec["root"], quarterLength=beats_per_bar))
-            else:
-                lh.append(chord.Chord(spec["triad"], quarterLength=beats_per_bar))
-        score.insert(0, lh)
+        score.insert(0, _build_lh_part(piece, lh_mode, measure_ql, pickup_ql))
 
     md = metadata.Metadata(title=piece["title"])
-    md.movementName = f"{piece['key']} Major"  # shown as a subtitle on the score
+    md.movementName = key_display(piece)  # shown as a subtitle on the score
     score.metadata = md
     return score
+
+
+def _build_melody_part(piece, lh_mode, measure_ql, pickup_ql) -> stream.Part:
+    """Treble part. Without a pickup, notes are appended flat (music21 bars them at
+    write time); with a pickup, measures are built by hand so the anacrusis is a
+    short, padded first measure rather than a shifted full bar."""
+    rh = stream.Part()
+    header = [
+        clef.TrebleClef(),
+        _piece_key(piece),
+        meter.TimeSignature(piece["time_signature"]),
+        tempo.MetronomeMark(number=piece["tempo"]),
+    ]
+    notes = piece["melody"]
+
+    if not pickup_ql:
+        for el in header:
+            rh.append(el)
+        for name, ql in notes:
+            rh.append(note.Note(name, quarterLength=ql))
+        return rh
+
+    for i, chunk in enumerate(_chunk_durations(notes, measure_ql, pickup_ql)):
+        m = stream.Measure()
+        if i == 0:
+            for el in header:
+                m.insert(0, el)
+            m.paddingLeft = measure_ql - pickup_ql  # mark as an anacrusis
+        for name, ql in chunk:
+            m.append(note.Note(name, quarterLength=ql))
+        rh.append(m)
+    return rh
+
+
+def _lh_element(chord_name: str, lh_mode: str, dur: float):
+    spec = CHORDS[chord_name]
+    if lh_mode == "notes":
+        return note.Note(spec["root"], quarterLength=dur)
+    return chord.Chord(spec["triad"], quarterLength=dur)
+
+
+def _build_lh_part(piece, lh_mode, measure_ql, pickup_ql) -> stream.Part:
+    """Bass part: one chord/root per full measure. A pickup gets a padded rest
+    measure first so both staves share the same barlines."""
+    lh = stream.Part()
+    header = [clef.BassClef(), _piece_key(piece), meter.TimeSignature(piece["time_signature"])]
+    chords = piece["chords"]
+
+    if not pickup_ql:
+        for el in header:
+            lh.append(el)
+        for chord_name in chords:
+            lh.append(_lh_element(chord_name, lh_mode, measure_ql))
+        return lh
+
+    anacrusis = stream.Measure()
+    for el in header:
+        anacrusis.insert(0, el)
+    anacrusis.paddingLeft = measure_ql - pickup_ql
+    anacrusis.append(note.Rest(quarterLength=pickup_ql))
+    lh.append(anacrusis)
+    for chord_name in chords:
+        m = stream.Measure()
+        m.append(_lh_element(chord_name, lh_mode, measure_ql))
+        lh.append(m)
+    return lh
 
 
 def score_to_events(score: stream.Score) -> list[dict]:
@@ -174,10 +370,11 @@ def main() -> None:
             data = {
                 "id": piece["id"],
                 "title": piece["title"],
-                "key": f"{piece['key']} Major",
+                "key": key_display(piece),
                 "timeSignature": piece["time_signature"],
                 "beatsPerBar": beats_per_bar,
                 "tempo": piece["tempo"],
+                "pickup": float(piece.get("pickup", 0) or 0),
                 "leftHand": lh_mode,
                 "clefs": ["treble"] if lh_mode == "off" else ["treble", "bass"],
                 "events": score_to_events(score),

@@ -1,0 +1,742 @@
+{
+  "id": "twinkle",
+  "title": "Twinkle, Twinkle, Little Star",
+  "key": "C Major",
+  "timeSignature": "4/4",
+  "beatsPerBar": 4,
+  "tempo": 100,
+  "pickup": 0.0,
+  "leftHand": "triads",
+  "clefs": [
+    "treble",
+    "bass"
+  ],
+  "events": [
+    {
+      "step": 0,
+      "beat": 0.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 60,
+          "durBeats": 1.0,
+          "name": "C4"
+        },
+        {
+          "midi": 48,
+          "durBeats": 4.0,
+          "name": "C3"
+        },
+        {
+          "midi": 52,
+          "durBeats": 4.0,
+          "name": "E3"
+        },
+        {
+          "midi": 55,
+          "durBeats": 4.0,
+          "name": "G3"
+        }
+      ],
+      "label": "C4"
+    },
+    {
+      "step": 1,
+      "beat": 1.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 60,
+          "durBeats": 1.0,
+          "name": "C4"
+        }
+      ],
+      "label": "C4"
+    },
+    {
+      "step": 2,
+      "beat": 2.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 67,
+          "durBeats": 1.0,
+          "name": "G4"
+        }
+      ],
+      "label": "G4"
+    },
+    {
+      "step": 3,
+      "beat": 3.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 67,
+          "durBeats": 1.0,
+          "name": "G4"
+        }
+      ],
+      "label": "G4"
+    },
+    {
+      "step": 4,
+      "beat": 4.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 69,
+          "durBeats": 1.0,
+          "name": "A4"
+        },
+        {
+          "midi": 41,
+          "durBeats": 4.0,
+          "name": "F2"
+        },
+        {
+          "midi": 45,
+          "durBeats": 4.0,
+          "name": "A2"
+        },
+        {
+          "midi": 48,
+          "durBeats": 4.0,
+          "name": "C3"
+        }
+      ],
+      "label": "A4"
+    },
+    {
+      "step": 5,
+      "beat": 5.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 69,
+          "durBeats": 1.0,
+          "name": "A4"
+        }
+      ],
+      "label": "A4"
+    },
+    {
+      "step": 6,
+      "beat": 6.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 67,
+          "durBeats": 2.0,
+          "name": "G4"
+        }
+      ],
+      "label": "G4"
+    },
+    {
+      "step": 7,
+      "beat": 8.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 65,
+          "durBeats": 1.0,
+          "name": "F4"
+        },
+        {
+          "midi": 41,
+          "durBeats": 4.0,
+          "name": "F2"
+        },
+        {
+          "midi": 45,
+          "durBeats": 4.0,
+          "name": "A2"
+        },
+        {
+          "midi": 48,
+          "durBeats": 4.0,
+          "name": "C3"
+        }
+      ],
+      "label": "F4"
+    },
+    {
+      "step": 8,
+      "beat": 9.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 65,
+          "durBeats": 1.0,
+          "name": "F4"
+        }
+      ],
+      "label": "F4"
+    },
+    {
+      "step": 9,
+      "beat": 10.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 64,
+          "durBeats": 1.0,
+          "name": "E4"
+        }
+      ],
+      "label": "E4"
+    },
+    {
+      "step": 10,
+      "beat": 11.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 64,
+          "durBeats": 1.0,
+          "name": "E4"
+        }
+      ],
+      "label": "E4"
+    },
+    {
+      "step": 11,
+      "beat": 12.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 62,
+          "durBeats": 1.0,
+          "name": "D4"
+        },
+        {
+          "midi": 48,
+          "durBeats": 4.0,
+          "name": "C3"
+        },
+        {
+          "midi": 52,
+          "durBeats": 4.0,
+          "name": "E3"
+        },
+        {
+          "midi": 55,
+          "durBeats": 4.0,
+          "name": "G3"
+        }
+      ],
+      "label": "D4"
+    },
+    {
+      "step": 12,
+      "beat": 13.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 62,
+          "durBeats": 1.0,
+          "name": "D4"
+        }
+      ],
+      "label": "D4"
+    },
+    {
+      "step": 13,
+      "beat": 14.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 60,
+          "durBeats": 2.0,
+          "name": "C4"
+        }
+      ],
+      "label": "C4"
+    },
+    {
+      "step": 14,
+      "beat": 16.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 67,
+          "durBeats": 1.0,
+          "name": "G4"
+        },
+        {
+          "midi": 48,
+          "durBeats": 4.0,
+          "name": "C3"
+        },
+        {
+          "midi": 52,
+          "durBeats": 4.0,
+          "name": "E3"
+        },
+        {
+          "midi": 55,
+          "durBeats": 4.0,
+          "name": "G3"
+        }
+      ],
+      "label": "G4"
+    },
+    {
+      "step": 15,
+      "beat": 17.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 67,
+          "durBeats": 1.0,
+          "name": "G4"
+        }
+      ],
+      "label": "G4"
+    },
+    {
+      "step": 16,
+      "beat": 18.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 65,
+          "durBeats": 1.0,
+          "name": "F4"
+        }
+      ],
+      "label": "F4"
+    },
+    {
+      "step": 17,
+      "beat": 19.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 65,
+          "durBeats": 1.0,
+          "name": "F4"
+        }
+      ],
+      "label": "F4"
+    },
+    {
+      "step": 18,
+      "beat": 20.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 64,
+          "durBeats": 1.0,
+          "name": "E4"
+        },
+        {
+          "midi": 43,
+          "durBeats": 4.0,
+          "name": "G2"
+        },
+        {
+          "midi": 47,
+          "durBeats": 4.0,
+          "name": "B2"
+        },
+        {
+          "midi": 50,
+          "durBeats": 4.0,
+          "name": "D3"
+        }
+      ],
+      "label": "E4"
+    },
+    {
+      "step": 19,
+      "beat": 21.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 64,
+          "durBeats": 1.0,
+          "name": "E4"
+        }
+      ],
+      "label": "E4"
+    },
+    {
+      "step": 20,
+      "beat": 22.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 62,
+          "durBeats": 2.0,
+          "name": "D4"
+        }
+      ],
+      "label": "D4"
+    },
+    {
+      "step": 21,
+      "beat": 24.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 67,
+          "durBeats": 1.0,
+          "name": "G4"
+        },
+        {
+          "midi": 48,
+          "durBeats": 4.0,
+          "name": "C3"
+        },
+        {
+          "midi": 52,
+          "durBeats": 4.0,
+          "name": "E3"
+        },
+        {
+          "midi": 55,
+          "durBeats": 4.0,
+          "name": "G3"
+        }
+      ],
+      "label": "G4"
+    },
+    {
+      "step": 22,
+      "beat": 25.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 67,
+          "durBeats": 1.0,
+          "name": "G4"
+        }
+      ],
+      "label": "G4"
+    },
+    {
+      "step": 23,
+      "beat": 26.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 65,
+          "durBeats": 1.0,
+          "name": "F4"
+        }
+      ],
+      "label": "F4"
+    },
+    {
+      "step": 24,
+      "beat": 27.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 65,
+          "durBeats": 1.0,
+          "name": "F4"
+        }
+      ],
+      "label": "F4"
+    },
+    {
+      "step": 25,
+      "beat": 28.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 64,
+          "durBeats": 1.0,
+          "name": "E4"
+        },
+        {
+          "midi": 43,
+          "durBeats": 4.0,
+          "name": "G2"
+        },
+        {
+          "midi": 47,
+          "durBeats": 4.0,
+          "name": "B2"
+        },
+        {
+          "midi": 50,
+          "durBeats": 4.0,
+          "name": "D3"
+        }
+      ],
+      "label": "E4"
+    },
+    {
+      "step": 26,
+      "beat": 29.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 64,
+          "durBeats": 1.0,
+          "name": "E4"
+        }
+      ],
+      "label": "E4"
+    },
+    {
+      "step": 27,
+      "beat": 30.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 62,
+          "durBeats": 2.0,
+          "name": "D4"
+        }
+      ],
+      "label": "D4"
+    },
+    {
+      "step": 28,
+      "beat": 32.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 60,
+          "durBeats": 1.0,
+          "name": "C4"
+        },
+        {
+          "midi": 48,
+          "durBeats": 4.0,
+          "name": "C3"
+        },
+        {
+          "midi": 52,
+          "durBeats": 4.0,
+          "name": "E3"
+        },
+        {
+          "midi": 55,
+          "durBeats": 4.0,
+          "name": "G3"
+        }
+      ],
+      "label": "C4"
+    },
+    {
+      "step": 29,
+      "beat": 33.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 60,
+          "durBeats": 1.0,
+          "name": "C4"
+        }
+      ],
+      "label": "C4"
+    },
+    {
+      "step": 30,
+      "beat": 34.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 67,
+          "durBeats": 1.0,
+          "name": "G4"
+        }
+      ],
+      "label": "G4"
+    },
+    {
+      "step": 31,
+      "beat": 35.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 67,
+          "durBeats": 1.0,
+          "name": "G4"
+        }
+      ],
+      "label": "G4"
+    },
+    {
+      "step": 32,
+      "beat": 36.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 69,
+          "durBeats": 1.0,
+          "name": "A4"
+        },
+        {
+          "midi": 41,
+          "durBeats": 4.0,
+          "name": "F2"
+        },
+        {
+          "midi": 45,
+          "durBeats": 4.0,
+          "name": "A2"
+        },
+        {
+          "midi": 48,
+          "durBeats": 4.0,
+          "name": "C3"
+        }
+      ],
+      "label": "A4"
+    },
+    {
+      "step": 33,
+      "beat": 37.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 69,
+          "durBeats": 1.0,
+          "name": "A4"
+        }
+      ],
+      "label": "A4"
+    },
+    {
+      "step": 34,
+      "beat": 38.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 67,
+          "durBeats": 2.0,
+          "name": "G4"
+        }
+      ],
+      "label": "G4"
+    },
+    {
+      "step": 35,
+      "beat": 40.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 65,
+          "durBeats": 1.0,
+          "name": "F4"
+        },
+        {
+          "midi": 41,
+          "durBeats": 4.0,
+          "name": "F2"
+        },
+        {
+          "midi": 45,
+          "durBeats": 4.0,
+          "name": "A2"
+        },
+        {
+          "midi": 48,
+          "durBeats": 4.0,
+          "name": "C3"
+        }
+      ],
+      "label": "F4"
+    },
+    {
+      "step": 36,
+      "beat": 41.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 65,
+          "durBeats": 1.0,
+          "name": "F4"
+        }
+      ],
+      "label": "F4"
+    },
+    {
+      "step": 37,
+      "beat": 42.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 64,
+          "durBeats": 1.0,
+          "name": "E4"
+        }
+      ],
+      "label": "E4"
+    },
+    {
+      "step": 38,
+      "beat": 43.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 64,
+          "durBeats": 1.0,
+          "name": "E4"
+        }
+      ],
+      "label": "E4"
+    },
+    {
+      "step": 39,
+      "beat": 44.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 62,
+          "durBeats": 1.0,
+          "name": "D4"
+        },
+        {
+          "midi": 48,
+          "durBeats": 4.0,
+          "name": "C3"
+        },
+        {
+          "midi": 52,
+          "durBeats": 4.0,
+          "name": "E3"
+        },
+        {
+          "midi": 55,
+          "durBeats": 4.0,
+          "name": "G3"
+        }
+      ],
+      "label": "D4"
+    },
+    {
+      "step": 40,
+      "beat": 45.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 62,
+          "durBeats": 1.0,
+          "name": "D4"
+        }
+      ],
+      "label": "D4"
+    },
+    {
+      "step": 41,
+      "beat": 46.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 60,
+          "durBeats": 2.0,
+          "name": "C4"
+        }
+      ],
+      "label": "C4"
+    }
+  ]
+}

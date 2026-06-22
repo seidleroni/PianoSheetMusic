@@ -106,7 +106,7 @@ export class Scheduler {
     this.osmd.cursor.reset();
     this.osmd.cursor.show();
     this._buildPart();
-    this.player.startMetronome(this.piece.beatsPerBar);
+    this.player.startMetronome(this.piece.beatsPerBar, this.piece.pickup || 0);
     Tone.getTransport().start();
     this.state = "playing";
   }

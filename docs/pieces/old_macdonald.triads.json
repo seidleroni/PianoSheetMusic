@@ -1,0 +1,232 @@
+{
+  "id": "old_macdonald",
+  "title": "Old MacDonald Had a Farm",
+  "key": "C Major",
+  "timeSignature": "4/4",
+  "beatsPerBar": 4,
+  "tempo": 110,
+  "pickup": 0.0,
+  "leftHand": "triads",
+  "clefs": [
+    "treble",
+    "bass"
+  ],
+  "events": [
+    {
+      "step": 0,
+      "beat": 0.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 60,
+          "durBeats": 1.0,
+          "name": "C4"
+        },
+        {
+          "midi": 48,
+          "durBeats": 4.0,
+          "name": "C3"
+        },
+        {
+          "midi": 52,
+          "durBeats": 4.0,
+          "name": "E3"
+        },
+        {
+          "midi": 55,
+          "durBeats": 4.0,
+          "name": "G3"
+        }
+      ],
+      "label": "C4"
+    },
+    {
+      "step": 1,
+      "beat": 1.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 60,
+          "durBeats": 1.0,
+          "name": "C4"
+        }
+      ],
+      "label": "C4"
+    },
+    {
+      "step": 2,
+      "beat": 2.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 60,
+          "durBeats": 1.0,
+          "name": "C4"
+        }
+      ],
+      "label": "C4"
+    },
+    {
+      "step": 3,
+      "beat": 3.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 67,
+          "durBeats": 1.0,
+          "name": "G4"
+        }
+      ],
+      "label": "G4"
+    },
+    {
+      "step": 4,
+      "beat": 4.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 69,
+          "durBeats": 1.0,
+          "name": "A4"
+        },
+        {
+          "midi": 41,
+          "durBeats": 4.0,
+          "name": "F2"
+        },
+        {
+          "midi": 45,
+          "durBeats": 4.0,
+          "name": "A2"
+        },
+        {
+          "midi": 48,
+          "durBeats": 4.0,
+          "name": "C3"
+        }
+      ],
+      "label": "A4"
+    },
+    {
+      "step": 5,
+      "beat": 5.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 69,
+          "durBeats": 1.0,
+          "name": "A4"
+        }
+      ],
+      "label": "A4"
+    },
+    {
+      "step": 6,
+      "beat": 6.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 67,
+          "durBeats": 2.0,
+          "name": "G4"
+        }
+      ],
+      "label": "G4"
+    },
+    {
+      "step": 7,
+      "beat": 8.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 64,
+          "durBeats": 1.0,
+          "name": "E4"
+        },
+        {
+          "midi": 43,
+          "durBeats": 4.0,
+          "name": "G2"
+        },
+        {
+          "midi": 47,
+          "durBeats": 4.0,
+          "name": "B2"
+        },
+        {
+          "midi": 50,
+          "durBeats": 4.0,
+          "name": "D3"
+        }
+      ],
+      "label": "E4"
+    },
+    {
+      "step": 8,
+      "beat": 9.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 64,
+          "durBeats": 1.0,
+          "name": "E4"
+        }
+      ],
+      "label": "E4"
+    },
+    {
+      "step": 9,
+      "beat": 10.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 62,
+          "durBeats": 1.0,
+          "name": "D4"
+        }
+      ],
+      "label": "D4"
+    },
+    {
+      "step": 10,
+      "beat": 11.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 62,
+          "durBeats": 1.0,
+          "name": "D4"
+        }
+      ],
+      "label": "D4"
+    },
+    {
+      "step": 11,
+      "beat": 12.0,
+      "rest": false,
+      "notes": [
+        {
+          "midi": 60,
+          "durBeats": 4.0,
+          "name": "C4"
+        },
+        {
+          "midi": 48,
+          "durBeats": 4.0,
+          "name": "C3"
+        },
+        {
+          "midi": 52,
+          "durBeats": 4.0,
+          "name": "E3"
+        },
+        {
+          "midi": 55,
+          "durBeats": 4.0,
+          "name": "G3"
+        }
+      ],
+      "label": "C4"
+    }
+  ]
+}
