@@ -59,16 +59,19 @@ export class Player {
     this.metronomeEnabled = on;
   }
 
-  /** Schedule a repeating quarter-note click on the Transport. */
-  startMetronome(beatsPerBar) {
+  /** Schedule a repeating quarter-note click on the Transport. `pickupBeats` is
+   *  the anacrusis length in beats, so the downbeat accent lands on the first
+   *  full bar rather than on the pickup. */
+  startMetronome(beatsPerBar, pickupBeats = 0) {
     this.stopMetronome();
     this.metroBeat = 0;
+    const offset = Math.round(pickupBeats);
     this.metroId = this.Tone.getTransport().scheduleRepeat((time) => {
       if (!this.metronomeEnabled) {
         this.metroBeat++;
         return;
       }
-      const accent = this.metroBeat % beatsPerBar === 0;
+      const accent = (((this.metroBeat - offset) % beatsPerBar) + beatsPerBar) % beatsPerBar === 0;
       this.click.triggerAttackRelease(accent ? "C6" : "G5", "32n", time);
       this.metroBeat++;
     }, "4n", 0);

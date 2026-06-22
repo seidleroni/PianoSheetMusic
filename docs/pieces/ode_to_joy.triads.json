@@ -5,6 +5,7 @@
   "timeSignature": "4/4",
   "beatsPerBar": 4,
   "tempo": 100,
+  "pickup": 0.0,
   "leftHand": "triads",
   "clefs": [
     "treble",

@@ -70,6 +70,7 @@ def main() -> None:
     ap.add_argument("--out", default=str(DEFAULT_OUT), help="Output PNG (default: tools/preview.png).")
     ap.add_argument("--width", type=int, default=1280)
     ap.add_argument("--height", type=int, default=900)
+    ap.add_argument("--piece", help="Select this piece id in the <select> before shooting.")
     ap.add_argument("--lefthand", choices=["off", "notes", "triads"],
                     help="Set the left-hand accompaniment <select> before shooting.")
     ap.add_argument("--settle", type=int, default=700,
@@ -92,6 +93,9 @@ def main() -> None:
             browser = _launch(p)
             page = browser.new_page(viewport={"width": args.width, "height": args.height})
             page.goto(url, wait_until="networkidle")
+            if args.piece:
+                page.select_option("#piece", args.piece)
+                page.wait_for_timeout(args.settle)
             if args.lefthand:
                 page.select_option("#lefthand", args.lefthand)
             page.wait_for_timeout(args.settle)
