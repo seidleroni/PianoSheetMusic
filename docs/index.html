@@ -101,6 +101,28 @@
     }
 
     .hint { color: var(--muted); font-size: 0.8rem; }
+
+    /* Staff reading guide */
+    #staff-guide {
+      background: var(--panel);
+      border-bottom: 1px solid var(--line);
+      padding: 0.6rem 0.8rem;
+      font-size: 0.85rem;
+    }
+    .sg-heading { font-weight: 700; margin-bottom: 0.4rem; }
+    .sg-block {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 1rem;
+      align-items: center;
+      margin-bottom: 0.4rem;
+    }
+    .sg-staff { flex: 0 0 auto; max-width: 100%; height: auto; }
+    .sg-text { flex: 1 1 12rem; color: var(--ink); line-height: 1.5; }
+    .sg-cleflabel { font-weight: 600; color: var(--muted); margin-bottom: 0.15rem; }
+    .sg-line { fill: #047857; color: #047857; font-weight: 700; font-size: 13px; }
+    .sg-space { fill: var(--accent); color: var(--accent); font-weight: 700; font-size: 13px; }
+    .sg-clef { fill: var(--ink); font-size: 46px; }
   </style>
 </head>
 <body>
@@ -108,7 +130,8 @@
     <div class="row">
       <select id="piece" aria-label="Choose a piece"></select>
       <button id="metronome" aria-pressed="false" title="Metronome">🔔 Metro</button>
-      <button id="labels" aria-pressed="false" title="Show note names">A B C</button>
+      <button id="labels" aria-pressed="true" title="Show note-name letters on each note">🔤 Note names</button>
+      <button id="guide" aria-pressed="true" title="Show the staff reading guide">📖 Guide</button>
     </div>
 
     <div class="row controls">
@@ -125,6 +148,8 @@
       </label>
     </div>
   </header>
+
+  <div id="staff-guide"></div>
 
   <div id="status">Loading…</div>
 

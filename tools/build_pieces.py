@@ -24,16 +24,17 @@ from music21 import chord, clef, key, metadata, meter, note, stream, tempo
 # Piece definitions  (right-hand melody only, G major, for now)
 # ---------------------------------------------------------------------------
 
-# Ode to Joy (Beethoven) -- main theme, two phrases, 4/4, G major.
+# Ode to Joy (Beethoven) -- main theme, two phrases, 4/4, C major (the standard
+# beginner version: all white keys).
 ODE_TO_JOY = [
-    ("B4", 1), ("B4", 1), ("C5", 1), ("D5", 1),
-    ("D5", 1), ("C5", 1), ("B4", 1), ("A4", 1),
-    ("G4", 1), ("G4", 1), ("A4", 1), ("B4", 1),
-    ("B4", 1.5), ("A4", 0.5), ("A4", 2),
-    ("B4", 1), ("B4", 1), ("C5", 1), ("D5", 1),
-    ("D5", 1), ("C5", 1), ("B4", 1), ("A4", 1),
-    ("G4", 1), ("G4", 1), ("A4", 1), ("B4", 1),
-    ("A4", 1.5), ("G4", 0.5), ("G4", 2),
+    ("E4", 1), ("E4", 1), ("F4", 1), ("G4", 1),
+    ("G4", 1), ("F4", 1), ("E4", 1), ("D4", 1),
+    ("C4", 1), ("C4", 1), ("D4", 1), ("E4", 1),
+    ("E4", 1.5), ("D4", 0.5), ("D4", 2),
+    ("E4", 1), ("E4", 1), ("F4", 1), ("G4", 1),
+    ("G4", 1), ("F4", 1), ("E4", 1), ("D4", 1),
+    ("C4", 1), ("C4", 1), ("D4", 1), ("E4", 1),
+    ("D4", 1.5), ("C4", 0.5), ("C4", 2),
 ]
 
 # Happy Birthday (public domain) -- 3/4, G major. Bars cleanly without a pickup
@@ -49,6 +50,7 @@ PIECES = [
     {
         "id": "ode_to_joy",
         "title": "Ode to Joy",
+        "key": "C",
         "time_signature": "4/4",
         "tempo": 100,
         "melody": ODE_TO_JOY,
@@ -56,6 +58,7 @@ PIECES = [
     {
         "id": "happy_birthday",
         "title": "Happy Birthday",
+        "key": "G",
         "time_signature": "3/4",
         "tempo": 100,
         "melody": HAPPY_BIRTHDAY,
@@ -74,13 +77,15 @@ def build_score(piece: dict) -> stream.Score:
     score = stream.Score()
     part = stream.Part()
     part.append(clef.TrebleClef())
-    part.append(key.Key("G"))
+    part.append(key.Key(piece["key"]))
     part.append(meter.TimeSignature(piece["time_signature"]))
     part.append(tempo.MetronomeMark(number=piece["tempo"]))
     for name, ql in piece["melody"]:
         part.append(note.Note(name, quarterLength=ql))
     score.insert(0, part)
-    score.metadata = metadata.Metadata(title=piece["title"])
+    md = metadata.Metadata(title=piece["title"])
+    md.movementName = f"{piece['key']} Major"  # shown as a subtitle on the score
+    score.metadata = md
     return score
 
 
@@ -126,6 +131,7 @@ def main() -> None:
         data = {
             "id": piece["id"],
             "title": piece["title"],
+            "key": f"{piece['key']} Major",
             "timeSignature": piece["time_signature"],
             "beatsPerBar": beats_per_bar,
             "tempo": piece["tempo"],

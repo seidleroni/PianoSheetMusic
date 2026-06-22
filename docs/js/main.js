@@ -5,6 +5,7 @@ import * as Tone from "https://cdn.jsdelivr.net/npm/tone@15/+esm";
 import { Player } from "./player.js";
 import { Scheduler } from "./scheduler.js";
 import { NoteLabels } from "./notelabels.js";
+import { StaffGuide } from "./staffguide.js";
 
 const OSMD = window.opensheetmusicdisplay;
 
@@ -18,10 +19,12 @@ const els = {
   bpm: document.getElementById("bpm"),
   metronome: document.getElementById("metronome"),
   labels: document.getElementById("labels"),
+  guide: document.getElementById("guide"),
   status: document.getElementById("status"),
   wrapper: document.getElementById("osmd-wrapper"),
   osmd: document.getElementById("osmd"),
   noteLabels: document.getElementById("note-labels"),
+  staffGuide: document.getElementById("staff-guide"),
 };
 
 function setStatus(msg) {
@@ -33,7 +36,7 @@ const osmd = new OSMD.OpenSheetMusicDisplay(els.osmd, {
   autoResize: false, // handled manually so labels can be rebuilt after render
   backend: "svg",
   drawTitle: true,
-  drawSubtitle: false,
+  drawSubtitle: true, // shows the key (e.g. "C Major") under the title
   drawComposer: false,
   drawLyricist: false,
   drawCredits: false,
@@ -49,8 +52,9 @@ function computeZoom() {
 const player = new Player(Tone);
 const scheduler = new Scheduler(Tone, osmd, player);
 const noteLabels = new NoteLabels(osmd, els.wrapper, els.noteLabels);
+const staffGuide = new StaffGuide(els.staffGuide);
 
-let labelsOn = false;
+let labelsOn = true; // note-name letters on by default (helps beginners read)
 let soundsLoaded = false;
 
 scheduler.onEnd = () => updateButtons();
@@ -84,6 +88,7 @@ async function loadPiece(id) {
     scheduler.setPiece(data);
     noteLabels.setEvents(data.events);
     noteLabels.setVisible(labelsOn);
+    staffGuide.setKey(data.key);
     els.tempo.value = data.tempo;
     els.bpm.textContent = data.tempo;
     setStatus("");
@@ -144,6 +149,12 @@ function toggleLabels() {
   noteLabels.setVisible(labelsOn);
 }
 
+function toggleGuide() {
+  const on = els.guide.getAttribute("aria-pressed") !== "true";
+  els.guide.setAttribute("aria-pressed", String(on));
+  staffGuide.setVisible(on);
+}
+
 // --- resize (re-render + reposition labels), only when not playing ---
 let resizeTimer = null;
 function onResize() {
@@ -165,6 +176,7 @@ async function init() {
   els.tempo.addEventListener("input", onTempo);
   els.metronome.addEventListener("click", toggleMetronome);
   els.labels.addEventListener("click", toggleLabels);
+  els.guide.addEventListener("click", toggleGuide);
   els.piece.addEventListener("change", () => loadPiece(els.piece.value));
   window.addEventListener("resize", onResize);
 

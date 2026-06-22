@@ -1,6 +1,7 @@
 {
   "id": "happy_birthday",
   "title": "Happy Birthday",
+  "key": "G Major",
   "timeSignature": "3/4",
   "beatsPerBar": 3,
   "tempo": 100,
