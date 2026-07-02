@@ -63,8 +63,12 @@ let soundsLoaded = false;
 scheduler.onEnd = () => updateButtons();
 
 // --- piece loading ---
+// Piece files are fetched with cache: "no-cache" so the browser revalidates
+// them against GitHub Pages (ETag) on every load. Without this, an updated
+// piece can be served stale for up to 10 minutes -- or worse, as a mix of new
+// notation + old timing data, which would desync the playback cursor.
 async function loadManifest() {
-  const res = await fetch("./pieces/manifest.json");
+  const res = await fetch("./pieces/manifest.json", { cache: "no-cache" });
   const pieces = await res.json();
   els.piece.innerHTML = "";
   for (const p of pieces) {
@@ -88,8 +92,8 @@ async function loadPiece(id) {
   try {
     const stem = pieceStem(id);
     const [xml, data] = await Promise.all([
-      fetch(`./pieces/${stem}.musicxml`).then((r) => r.text()),
-      fetch(`./pieces/${stem}.json`).then((r) => r.json()),
+      fetch(`./pieces/${stem}.musicxml`, { cache: "no-cache" }).then((r) => r.text()),
+      fetch(`./pieces/${stem}.json`, { cache: "no-cache" }).then((r) => r.json()),
     ]);
     await osmd.load(xml);
     osmd.zoom = computeZoom();
