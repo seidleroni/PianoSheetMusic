@@ -33,5 +33,20 @@
     "id": "fur_elise",
     "title": "F\u00fcr Elise (theme)",
     "tempo": 68
+  },
+  {
+    "id": "jingle_bells",
+    "title": "Jingle Bells",
+    "tempo": 120
+  },
+  {
+    "id": "when_the_saints",
+    "title": "When the Saints Go Marching In",
+    "tempo": 110
+  },
+  {
+    "id": "amazing_grace",
+    "title": "Amazing Grace",
+    "tempo": 84
   }
 ]

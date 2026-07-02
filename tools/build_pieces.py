@@ -16,6 +16,7 @@ Run from the tools/ directory:   uv run build_pieces.py
 
 Durations are quarterLengths: quarter=1, half=2, dotted-quarter=1.5, eighth=0.5.
 Pitches are scientific names (e.g. 'B4', 'F#4'); the key signature handles display.
+A pitch of None is a rest (a breath in the melody).
 """
 
 from __future__ import annotations
@@ -119,6 +120,71 @@ FUR_ELISE = [
     ("A4", 3.0),                                                  # resolution
 ]
 
+# Jingle Bells (James Lord Pierpont, public domain) -- the chorus, 4/4, C major.
+# First time through, "sleigh" ends with the shouted "hey!" on G; the second
+# ending walks down G-G-F-D and lands on C.
+JINGLE_BELLS = [
+    ("E4", 1), ("E4", 1), ("E4", 2),                                # jin-gle bells
+    ("E4", 1), ("E4", 1), ("E4", 2),                                # jin-gle bells
+    ("E4", 1), ("G4", 1), ("C4", 1.5), ("D4", 0.5),                 # jin-gle all the
+    ("E4", 4),                                                      # way
+    ("F4", 1), ("F4", 1), ("F4", 1.5), ("F4", 0.5),                 # oh what fun it
+    ("F4", 1), ("E4", 1), ("E4", 1), ("E4", 0.5), ("E4", 0.5),      # is to ride in a
+    ("E4", 1), ("D4", 1), ("D4", 1), ("E4", 1),                     # one-horse o-pen
+    ("D4", 2), ("G4", 2),                                           # sleigh -- hey!
+    ("E4", 1), ("E4", 1), ("E4", 2),
+    ("E4", 1), ("E4", 1), ("E4", 2),
+    ("E4", 1), ("G4", 1), ("C4", 1.5), ("D4", 0.5),
+    ("E4", 4),
+    ("F4", 1), ("F4", 1), ("F4", 1.5), ("F4", 0.5),
+    ("F4", 1), ("E4", 1), ("E4", 1), ("E4", 0.5), ("E4", 0.5),
+    ("G4", 1), ("G4", 1), ("F4", 1), ("D4", 1),                     # one-horse o-pen
+    ("C4", 4),                                                      # sleigh
+]
+
+# When the Saints Go Marching In (public domain) -- 4/4, C major. Opens with a
+# three-beat pickup ("Oh when the saints"); each later entry of that figure
+# starts after a one-beat rest, as sung.
+WHEN_THE_SAINTS = [
+    ("C4", 1), ("E4", 1), ("F4", 1),                  # pickup (3 beats): oh when the
+    ("G4", 4),                                        # saints
+    (None, 1), ("C4", 1), ("E4", 1), ("F4", 1),       # -- oh when the
+    ("G4", 4),                                        # saints
+    (None, 1), ("C4", 1), ("E4", 1), ("F4", 1),       # -- oh when the
+    ("G4", 2), ("E4", 2),                             # saints go
+    ("C4", 2), ("E4", 2),                             # march-ing
+    ("D4", 4),                                        # in
+    (None, 1), ("E4", 1), ("E4", 1), ("D4", 1),       # -- oh how I
+    ("C4", 2), ("C4", 1), ("E4", 1),                  # want -- to be
+    ("G4", 2), ("G4", 1), ("G4", 1),                  # in that num-
+    ("F4", 2), ("E4", 1), ("F4", 1),                  # -ber, when the
+    ("G4", 2), ("E4", 2),                             # saints go
+    ("C4", 2), ("D4", 2),                             # march-ing
+    ("C4", 4),                                        # in
+]
+
+# Amazing Grace ("New Britain", public domain) -- 3/4, G major, fully pentatonic
+# (G A B D E only). One-beat pickup ("A-"); the long "me" gets a two-beat breath
+# before the "I" upbeat, as sung. "-ing"/"a"/"but" are two-note eighth melismas.
+AMAZING_GRACE = [
+    ("D4", 1),                                        # pickup (1 beat): A-
+    ("G4", 2), ("B4", 0.5), ("G4", 0.5),              # maz-ing
+    ("B4", 2), ("A4", 1),                             # grace, how
+    ("G4", 2), ("E4", 1),                             # sweet the
+    ("D4", 2), ("D4", 1),                             # sound that
+    ("G4", 2), ("B4", 0.5), ("G4", 0.5),              # saved a
+    ("B4", 2), ("A4", 1),                             # wretch like
+    ("D5", 3),                                        # me
+    (None, 2), ("B4", 1),                             # -- I
+    ("D5", 2), ("B4", 1),                             # once was
+    ("G4", 2), ("E4", 1),                             # lost, but
+    ("G4", 2), ("E4", 1),                             # now am
+    ("D4", 2), ("D4", 1),                             # found, was
+    ("G4", 2), ("B4", 0.5), ("G4", 0.5),              # blind but
+    ("B4", 2), ("A4", 1),                             # now I
+    ("G4", 3),                                        # see
+]
+
 # ---------------------------------------------------------------------------
 # Left-hand chords (one per measure). root = single bass note ("notes" mode);
 # triad = the three chord tones ("triads" mode). Voiced in the bass clef range.
@@ -199,6 +265,38 @@ PIECES = [
         "melody": FUR_ELISE,
         "chords": ["E", "Am", "E", "Am", "E", "Am", "E", "Am"],
     },
+    {
+        "id": "jingle_bells",
+        "title": "Jingle Bells",
+        "key": "C",
+        "time_signature": "4/4",
+        "tempo": 120,
+        "melody": JINGLE_BELLS,
+        "chords": ["C", "C", "C", "C", "F", "C", "D", "G",
+                   "C", "C", "C", "C", "F", "C", "G", "C"],
+    },
+    {
+        "id": "when_the_saints",
+        "title": "When the Saints Go Marching In",
+        "key": "C",
+        "time_signature": "4/4",
+        "tempo": 110,
+        "pickup": 3.0,  # three-beat anacrusis ("Oh when the saints")
+        "melody": WHEN_THE_SAINTS,
+        "chords": ["C", "C", "C", "C", "C", "C", "G", "G",
+                   "C", "C", "F", "C", "G", "C"],
+    },
+    {
+        "id": "amazing_grace",
+        "title": "Amazing Grace",
+        "key": "G",
+        "time_signature": "3/4",
+        "tempo": 84,
+        "pickup": 1.0,  # one-beat anacrusis ("A-")
+        "melody": AMAZING_GRACE,
+        "chords": ["G", "G", "C", "G", "G", "G", "D", "D",
+                   "G", "G", "C", "G", "G", "D", "G"],
+    },
 ]
 
 LH_MODES = ["off", "notes", "triads"]
@@ -253,6 +351,11 @@ def build_score(piece: dict, lh_mode: str) -> stream.Score:
     return score
 
 
+def _melody_element(name: str | None, ql: float):
+    """A melody note, or a rest when the pitch is None."""
+    return note.Note(name, quarterLength=ql) if name else note.Rest(quarterLength=ql)
+
+
 def _build_melody_part(piece, lh_mode, measure_ql, pickup_ql) -> stream.Part:
     """Treble part. Without a pickup, notes are appended flat (music21 bars them at
     write time); with a pickup, measures are built by hand so the anacrusis is a
@@ -270,17 +373,17 @@ def _build_melody_part(piece, lh_mode, measure_ql, pickup_ql) -> stream.Part:
         for el in header:
             rh.append(el)
         for name, ql in notes:
-            rh.append(note.Note(name, quarterLength=ql))
+            rh.append(_melody_element(name, ql))
         return rh
 
     for i, chunk in enumerate(_chunk_durations(notes, measure_ql, pickup_ql)):
-        m = stream.Measure()
+        m = stream.Measure(number=i)  # anacrusis is measure 0, by convention
         if i == 0:
             for el in header:
                 m.insert(0, el)
             m.paddingLeft = measure_ql - pickup_ql  # mark as an anacrusis
         for name, ql in chunk:
-            m.append(note.Note(name, quarterLength=ql))
+            m.append(_melody_element(name, ql))
         rh.append(m)
     return rh
 
@@ -306,14 +409,14 @@ def _build_lh_part(piece, lh_mode, measure_ql, pickup_ql) -> stream.Part:
             lh.append(_lh_element(chord_name, lh_mode, measure_ql))
         return lh
 
-    anacrusis = stream.Measure()
+    anacrusis = stream.Measure(number=0)
     for el in header:
         anacrusis.insert(0, el)
     anacrusis.paddingLeft = measure_ql - pickup_ql
     anacrusis.append(note.Rest(quarterLength=pickup_ql))
     lh.append(anacrusis)
-    for chord_name in chords:
-        m = stream.Measure()
+    for i, chord_name in enumerate(chords, start=1):
+        m = stream.Measure(number=i)
         m.append(_lh_element(chord_name, lh_mode, measure_ql))
         lh.append(m)
     return lh
