@@ -80,8 +80,11 @@ export class Scheduler {
     const el = this.osmd.cursor && this.osmd.cursor.cursorElement;
     if (!el || !el.getBoundingClientRect) return;
     const r = el.getBoundingClientRect();
-    const margin = 80;
-    if (r.top < margin || r.bottom > window.innerHeight - margin) {
+    // The top margin must clear the sticky transport bar, or a cursor hidden
+    // behind it would never trigger a scroll.
+    const topMargin = 140;
+    const bottomMargin = 80;
+    if (r.top < topMargin || r.bottom > window.innerHeight - bottomMargin) {
       el.scrollIntoView({ block: "center", behavior: "smooth" });
     }
   }

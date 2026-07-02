@@ -5,7 +5,8 @@ a piece on the staff, plays it on a sampled piano with an **adjustable tempo**, 
 a **follow-along cursor** highlights the note you should be playing. Optional
 note-name letters (A–G) help while you learn to read.
 
-Currently included (right-hand melody): **Ode to Joy** (C major) and **Happy Birthday** (G major).
+Ten beginner pieces are included (Ode to Joy, Twinkle, Für Elise, Amazing Grace, …),
+each with optional left-hand accompaniment (bass notes or triads).
 
 Live site: https://seidleroni.github.io/PianoSheetMusic/
 

@@ -31,13 +31,20 @@
       padding-bottom: 4rem;
     }
 
+    /* Setup controls (piece, left hand, toggles): scroll away normally. Only the
+       transport bar below stays stuck, so phones keep most of the screen for the
+       music while playing. */
     header {
+      background: var(--panel);
+      padding: 0.6rem 0.8rem;
+    }
+    #transport {
       position: sticky;
       top: 0;
       z-index: 10;
       background: var(--panel);
       border-bottom: 1px solid var(--line);
-      padding: 0.6rem 0.8rem calc(0.6rem + env(safe-area-inset-bottom, 0));
+      padding: 0.5rem 0.8rem;
       box-shadow: 0 1px 4px rgba(0,0,0,0.04);
     }
     .row { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
@@ -86,12 +93,12 @@
     }
     #osmd { width: 100%; }
 
-    /* Note-name letter overlay */
-    #note-labels { position: absolute; inset: 0; pointer-events: none; }
+    /* Note-name letter overlay. Font size lives on the layer (JS scales it with
+       the OSMD zoom); the spans inherit it. */
+    #note-labels { position: absolute; inset: 0; pointer-events: none; font-size: 0.6rem; }
     #note-labels span {
       position: absolute;
       transform: translate(-50%, 0);
-      font-size: 0.6rem;
       font-weight: 700;
       color: var(--accent);
       background: rgba(255,255,255,0.85);
@@ -123,6 +130,15 @@
     .sg-line { fill: #047857; color: #047857; font-weight: 700; font-size: 13px; }
     .sg-space { fill: var(--accent); color: var(--accent); font-weight: 700; font-size: 13px; }
     .sg-clef { fill: var(--ink); font-size: 46px; }
+
+    /* Phones: tighter chrome so the score starts as high as possible. */
+    @media (max-width: 480px) {
+      header { padding: 0.5rem 0.6rem; }
+      #transport { padding: 0.4rem 0.6rem; }
+      .row { gap: 0.4rem; }
+      select, button { padding: 0.45rem 0.6rem; min-height: 2.5rem; font-size: 0.95rem; }
+      #osmd-wrapper { padding: 0.25rem; }
+    }
   </style>
 </head>
 <body>
@@ -139,6 +155,9 @@
       <button id="guide" aria-pressed="true" title="Show the staff reading guide">📖 Guide</button>
     </div>
 
+  </header>
+
+  <div id="transport">
     <div class="row controls">
       <button id="play" class="primary">▶ Play</button>
       <button id="pause" disabled>⏸ Pause</button>
@@ -152,7 +171,7 @@
         <span class="bpm"><span id="bpm">100</span> BPM</span>
       </label>
     </div>
-  </header>
+  </div>
 
   <div id="staff-guide"></div>
 

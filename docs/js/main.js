@@ -46,7 +46,9 @@ const osmd = new OSMD.OpenSheetMusicDisplay(els.osmd, {
 
 function computeZoom() {
   const w = els.wrapper.clientWidth || window.innerWidth;
-  return Math.max(0.55, Math.min(1.0, w / 700));
+  // Floor of 0.7: on phones the notes stay readable and OSMD wraps to fewer
+  // measures per system instead (vertical scrolling is cheap there).
+  return Math.max(0.7, Math.min(1.0, w / 700));
 }
 
 // --- engine ---
@@ -188,6 +190,12 @@ async function init() {
   els.piece.addEventListener("change", () => loadPiece(els.piece.value));
   els.lefthand.addEventListener("change", () => loadPiece(els.piece.value));
   window.addEventListener("resize", onResize);
+
+  // On phones, start with the reading guide collapsed so the score isn't pushed
+  // below the fold; the 📖 button brings it back.
+  const guideOn = window.matchMedia("(min-width: 600px)").matches;
+  els.guide.setAttribute("aria-pressed", String(guideOn));
+  staffGuide.setVisible(guideOn);
 
   try {
     const pieces = await loadManifest();

@@ -63,6 +63,11 @@ export class NoteLabels {
     const cursor = this.osmd.cursor;
     if (!cursor) return;
 
+    // Scale the letters with the score so they stay proportional to the
+    // noteheads on small screens (spans inherit the layer's font size).
+    const zoom = this.osmd.zoom || 1;
+    this.layer.style.fontSize = `${Math.max(8, Math.round(10.5 * zoom))}px`;
+
     const wasShown = cursor.cursorElement && cursor.cursorElement.style.display !== "none";
     const wrapRect = this.wrapper.getBoundingClientRect();
 

@@ -31,14 +31,23 @@ from music21 import chord, clef, key, metadata, meter, note, stream, tempo
 # Right-hand melodies
 # ---------------------------------------------------------------------------
 
-# Ode to Joy (Beethoven) -- main theme, two phrases, 4/4, C major (the standard
-# beginner version: all white keys).
+# Ode to Joy (Beethoven) -- the complete 16-bar theme (A A' B A'), 4/4, C major
+# (the standard beginner version: all white keys). The B section ("re re mi do")
+# dips to G3 at its close before the main phrase returns.
 ODE_TO_JOY = [
-    ("E4", 1), ("E4", 1), ("F4", 1), ("G4", 1),
+    ("E4", 1), ("E4", 1), ("F4", 1), ("G4", 1),                     # A
     ("G4", 1), ("F4", 1), ("E4", 1), ("D4", 1),
     ("C4", 1), ("C4", 1), ("D4", 1), ("E4", 1),
     ("E4", 1.5), ("D4", 0.5), ("D4", 2),
-    ("E4", 1), ("E4", 1), ("F4", 1), ("G4", 1),
+    ("E4", 1), ("E4", 1), ("F4", 1), ("G4", 1),                     # A'
+    ("G4", 1), ("F4", 1), ("E4", 1), ("D4", 1),
+    ("C4", 1), ("C4", 1), ("D4", 1), ("E4", 1),
+    ("D4", 1.5), ("C4", 0.5), ("C4", 2),
+    ("D4", 1), ("D4", 1), ("E4", 1), ("C4", 1),                     # B
+    ("D4", 1), ("E4", 0.5), ("F4", 0.5), ("E4", 1), ("C4", 1),
+    ("D4", 1), ("E4", 0.5), ("F4", 0.5), ("E4", 1), ("D4", 1),
+    ("C4", 1), ("D4", 1), ("G3", 2),
+    ("E4", 1), ("E4", 1), ("F4", 1), ("G4", 1),                     # A'
     ("G4", 1), ("F4", 1), ("E4", 1), ("D4", 1),
     ("C4", 1), ("C4", 1), ("D4", 1), ("E4", 1),
     ("D4", 1.5), ("C4", 0.5), ("C4", 2),
@@ -93,13 +102,28 @@ FRERE_JACQUES = [
     ("C4", 1), ("G3", 1), ("C4", 2),
 ]
 
-# Old MacDonald Had a Farm (public domain) -- 4/4, C major. The recognizable
-# "E-I-E-I-O" strain (the later verse lines use a pickup, so we stop here).
+# Old MacDonald Had a Farm (public domain) -- one full verse with the "moo moo"
+# strain, 4/4, C major. "Old Mac-Don-ald" dips below the staff (C4 C4 C4 G3),
+# and the "and" / "with a" upbeats follow a breath rest inside each "O" bar.
 OLD_MACDONALD = [
-    ("C4", 1), ("C4", 1), ("C4", 1), ("G4", 1),
-    ("A4", 1), ("A4", 1), ("G4", 2),
-    ("E4", 1), ("E4", 1), ("D4", 1), ("D4", 1),
-    ("C4", 4),
+    ("C4", 1), ("C4", 1), ("C4", 1), ("G3", 1),                     # Old Mac-Don-ald
+    ("A3", 1), ("A3", 1), ("G3", 2),                                # had a farm
+    ("E4", 1), ("E4", 1), ("D4", 1), ("D4", 1),                     # E-I-E-I
+    ("C4", 2), (None, 1), ("G3", 1),                                # O -- and
+    ("C4", 1), ("C4", 1), ("C4", 1), ("G3", 1),                     # on that farm he
+    ("A3", 1), ("A3", 1), ("G3", 2),                                # had a cow
+    ("E4", 1), ("E4", 1), ("D4", 1), ("D4", 1),                     # E-I-E-I
+    ("C4", 2), (None, 1), ("G3", 0.5), ("G3", 0.5),                 # O -- with a
+    ("C4", 1), ("C4", 1), ("C4", 1), ("G3", 0.5), ("G3", 0.5),      # moo moo here, and a
+    ("C4", 1), ("C4", 1), ("C4", 2),                                # moo moo there
+    ("C4", 0.5), ("C4", 0.5), ("C4", 1),                            # here a moo,
+    ("C4", 0.5), ("C4", 0.5), ("C4", 1),                            # there a moo,
+    ("C4", 0.5), ("C4", 0.5), ("C4", 0.5), ("C4", 0.5),             # ev-ry-where a
+    ("C4", 1), ("C4", 1),                                           # moo moo
+    ("C4", 1), ("C4", 1), ("C4", 1), ("G3", 1),                     # Old Mac-Don-ald
+    ("A3", 1), ("A3", 1), ("G3", 2),                                # had a farm
+    ("E4", 1), ("E4", 1), ("D4", 1), ("D4", 1),                     # E-I-E-I
+    ("C4", 4),                                                      # O!
 ]
 
 # Fur Elise (Beethoven, WoO 59) -- the famous A-section theme, A minor.
@@ -207,7 +231,8 @@ PIECES = [
         "time_signature": "4/4",
         "tempo": 100,
         "melody": ODE_TO_JOY,
-        "chords": ["C", "G", "C", "G", "C", "G", "C", "C"],
+        "chords": ["C", "G", "C", "G", "C", "G", "C", "C",
+                   "G", "C", "G", "G", "C", "G", "C", "C"],
     },
     {
         "id": "happy_birthday",
@@ -252,7 +277,8 @@ PIECES = [
         "time_signature": "4/4",
         "tempo": 110,
         "melody": OLD_MACDONALD,
-        "chords": ["C", "F", "G", "C"],
+        "chords": ["C", "F", "G", "C", "C", "F", "G", "C",
+                   "C", "F", "C", "F", "C", "F", "G", "C"],
     },
     {
         "id": "fur_elise",
@@ -317,20 +343,44 @@ def _piece_key(piece: dict) -> key.Key:
 def _chunk_durations(items, measure_ql: float, pickup_ql: float):
     """Greedily split a flat list of (·, quarterLength) into per-measure lists.
 
-    The first list fills the pickup (if any); the rest fill full measures. Assumes
-    no item straddles a barline (true for the melodies here).
+    The first list fills the pickup (if any); the rest fill full measures.
+    Raises if an item straddles a barline or the melody ends mid-measure, so a
+    duration typo fails the build instead of silently shifting every later bar.
     """
     measures, cur, acc = [], [], 0.0
     target = pickup_ql or measure_ql
     for item in items:
         cur.append(item)
         acc += item[1]
+        if acc > target + 1e-6:
+            raise ValueError(
+                f"item {item} straddles a barline (measure {len(measures) + 1} "
+                f"sums to {acc}, expected {target})"
+            )
         if acc >= target - 1e-6:
             measures.append(cur)
             cur, acc, target = [], 0.0, measure_ql
     if cur:
-        measures.append(cur)
+        raise ValueError(f"melody ends {target - acc} beats short of a full measure")
     return measures
+
+
+def _validate_piece(piece: dict) -> None:
+    """Check the piece's lengths: every bar must fill exactly, and the melody's
+    full-measure count must match the chord list (one chord per measure)."""
+    num, den = (int(x) for x in piece["time_signature"].split("/"))
+    measure_ql = 4.0 * num / den
+    pickup_ql = float(piece.get("pickup", 0) or 0)
+    try:
+        measures = _chunk_durations(piece["melody"], measure_ql, pickup_ql)
+    except ValueError as e:
+        raise ValueError(f"{piece['id']}: {e}") from None
+    n_full = len(measures) - (1 if pickup_ql else 0)
+    if n_full != len(piece["chords"]):
+        raise ValueError(
+            f"{piece['id']}: melody fills {n_full} measures "
+            f"but 'chords' lists {len(piece['chords'])}"
+        )
 
 
 def build_score(piece: dict, lh_mode: str) -> stream.Score:
@@ -463,6 +513,7 @@ def main() -> None:
     manifest = []
 
     for piece in PIECES:
+        _validate_piece(piece)
         beats_per_bar = int(piece["time_signature"].split("/")[0])
         for lh_mode in LH_MODES:
             score = build_score(piece, lh_mode)
